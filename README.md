@@ -6,7 +6,7 @@ This script allows streaming audio between two Linux machines, for example, a la
 * netcat-openbsd
 * ffplay
 ## Instructions 
-**NOT CURRENTLY FIT FOR HUMAN COMSPUTION**
+**NOT CURRENTLY FIT FOR HUMAN CONSUMPTION**
 
 
 
