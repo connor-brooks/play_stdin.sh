@@ -1,4 +1,4 @@
-#play_stdin
+# play_stdin
 
 *Stream audio via bash*
 
