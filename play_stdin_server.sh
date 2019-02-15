@@ -76,6 +76,7 @@ setup_server_fifo $CONTROLLER_PIPE_FILE
 # Main loop of server
 # constantly pipe fifo into netcat
 # constantly read netcat resp and execute related command
+# Controller pipe is for messages to clients
 while true;
 do cat $CONTROLLER_PIPE_FILE;
 done |
