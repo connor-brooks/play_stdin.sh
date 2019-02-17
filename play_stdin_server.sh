@@ -52,22 +52,15 @@ server_new_stream () {
 
 
 # respond to commands from client
-# SWITCH THIS TO CASE!!!!!
 command_respond () {
-  if [ $1 == "HELLO" ]
-  then
-    server_hello
-  fi
-
-  if [ $1 == "BYE" ]
-  then
-    server_exit
-  fi
-
-  if [ $1 == "NEW" ]
-  then
-    server_new_stream
-  fi
+case "$1" in
+  "HELLO") server_hello
+    ;;
+  "BYE") server_exit
+    ;;
+  "NEW") server_new_stream
+    ;;
+esac
 }
 
 # Create the pipe for commands
