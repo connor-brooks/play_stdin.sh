@@ -33,7 +33,7 @@ server_exit (){
 
 # HELLO - for testing connection, ensuring an audio server can start
 server_hello () {
-  echo "HI" > $CONTROLLER_PIPE_FILE;
+  echo "HELLO" > $CONTROLLER_PIPE_FILE;
 }
 
 # NEW, create audio server randomized port and send the port

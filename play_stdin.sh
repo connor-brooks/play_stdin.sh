@@ -3,10 +3,12 @@ CONTROLLER_IP=127.0.0.1
 CONTROLLER_PORT=1337
 #CONTROLLER_PASSWORD=PAsswd # Not used
 
-echo "Requesting audio server to start..."
-
-# Check the server is up
-echo "HELLO" | netcat -w 1 $CONTROLLER_IP $CONTROLLER_PORT 
+# Check the server is up, exit if not
+if [[ "$(echo "HELLO" | netcat -w 1 $CONTROLLER_IP $CONTROLLER_PORT)" != "HELLO" ]]
+then
+  echo "Server not found, exiting!";
+  exit;
+fi
 
 # Grab the audio stream port from the server
 PLAYER_PORT=$(echo "NEW" | netcat -w 1 $CONTROLLER_IP $CONTROLLER_PORT)
