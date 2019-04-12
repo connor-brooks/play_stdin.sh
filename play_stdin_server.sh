@@ -61,9 +61,7 @@ server_new_stream () {
 
     echo $PORT > $CONTROLLER_PIPE_FILE;
   fi
-
 }
-
 
 # respond to commands from client
 command_respond () {
