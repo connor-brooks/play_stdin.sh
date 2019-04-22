@@ -20,7 +20,7 @@ If you're using a Raspberry Pi:
 
 `sudo apt-get install ffplay nmap`
 
-### Configure (optional)
+#### Configure (optional)
 With the text editor of you choice, edit line 2 of `play_stdin_server.sh` and change the `CONTROLLER_PORT` variable to whatever port you want, for example run:
 
 `nano play_stdin_server.sh`
