@@ -1,25 +1,15 @@
 #!/bin/bash
-
+CONTROLLER_PORT=1337
+AUDIO_SERVER_PLAYER="ffplay -nodisp -i -"
 CONTROLLER_PIPE_NAME=play_stdin_server
 CONTROLLER_PIPE_FILE=/tmp/$CONTROLLER_PIPE_NAME
-CONTROLLER_PORT=1337
-
 AUDIO_SERVER_IS_RUNNING=0
 AUDIO_SERVER_IS_PAUSED=0
 AUDIO_SERVER_PID=0
 
-AUDIO_SERVER_PLAYER="ffplay -nodisp -i -"
-
-
-# Create the pipe
-setup_server_fifo () {
-  mkfifo $1
-  return
-}
-
-################
-# Server commands
-#################
+###################
+# Server commands #
+###################
 # EXIT, kill the whole server
 server_exit (){
   echo "GOODBYE!" > $CONTROLLER_PIPE_FILE;
@@ -79,6 +69,12 @@ command_respond () {
   esac
 }
 
+# Create the pipe
+setup_server_fifo () {
+  mkfifo $1
+  return
+}
+
 # Create the pipe for commands
 setup_server_fifo $CONTROLLER_PIPE_FILE
 
@@ -94,4 +90,3 @@ while read line
 do
   command_respond $line
 done
-

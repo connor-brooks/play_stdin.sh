@@ -9,21 +9,48 @@ This script allows streaming audio between two Linux machines, for example, a la
 * netcat (any)
 
 ## Instructions 
-Install sever dependencies, for example, if you're using a Raspberry Pi, SSH into it and run:
+### Server
+#### Get the script
+SSH into your server, and download the scripts via git:
+
+`git clone https://github.com/connor-brooks/play_stdin.sh.git`
+
+#### Install dependancies
+If you're using a Raspberry Pi:
 
 `sudo apt-get install ffplay nmap`
 
-Then start the server, by running:
+### Configure (optional)
+With the text editor of you choice, edit line 2 of `play_stdin_server.sh` and change the `CONTROLLER_PORT` variable to whatever port you want, for example run:
 
+`nano play_stdin_server.sh`
+
+Change the port number, and save.
+
+#### Run the server
+To start the server, run the following command:
 `./play_stdin_server.sh &`
 
-You can now disconnect from the server.
+You can now disconnect from the Raspberry Pi, but before you do, make sure to take note of your servers IP address, buy running the following:
 
-On your client, you can now run:
+`sudo ifconfig` 
 
+Generally your ip address will be in the format of `192.168.xxx.xxx`
+
+
+### Client
+#### Get the script
+`git clone https://github.com/connor-brooks/play_stdin.sh.git`
+
+#### Configure:
+Using the text editor of your choice, edit line 2 and 3 of `play_stdin.sh` to match the port and IP of your server. 
+
+#### Play some music
 `cat music.mp3 | ./play_stdin.sh &`
 
 Where `music.mp3` is the song you'd like to play.
+
+#### Play and pause
 
 To pause from your client:
 

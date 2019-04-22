@@ -36,4 +36,3 @@ echo "Playing, you can kill this process now!"
 # pipe arg0 (The cat'd audio file) to the audio stream server
 (netcat $CONTROLLER_IP $PLAYER_PORT <&0)
 exit
-
