@@ -1,7 +1,7 @@
 # play_stdin.sh
-*Stream audio via bash*
+*Stream audio via UNIX pipes*
 
-This script allows streaming audio between two Linux machines, for example, a laptop and a Raspberry Pi. No audio backends such as Pulseaudio are required, the list of dependencies is very basic.
+This simple set of scripts allows streaming audio between two Linux machines, for example, a laptop and a Raspberry Pi. No audio backends such as Pulseaudio or JACK are required, the list of dependencies is very small.
 ## Requirements (server)
 * ncat (from nmap)
 * ffplay
