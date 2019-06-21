@@ -1,7 +1,6 @@
 #!/bin/bash
 CONTROLLER_IP=127.0.0.1
 CONTROLLER_PORT=1337
-#CONTROLLER_PASSWORD=PAsswd # Not used
 
 function print_usage () {
   echo "usage: cat music.mp3 | $0 &"

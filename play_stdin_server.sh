@@ -7,16 +7,14 @@ AUDIO_SERVER_IS_RUNNING=0
 AUDIO_SERVER_IS_PAUSED=0
 AUDIO_SERVER_PID=0
 
-###################
-# Server commands #
-###################
-# EXIT, kill the whole server
+# EXIT, stop the whole server
 server_exit (){
   echo "GOODBYE!" > $CONTROLLER_PIPE_FILE;
   rm $CONTROLLER_PIPE_FILE
   kill -- -$$;
 }
 
+# PAUSE, toggle the audio server
 server_audio_toggle () {
   if [[ $AUDIO_SERVER_IS_PAUSED -eq 0 ]]
   then
@@ -28,6 +26,7 @@ server_audio_toggle () {
   fi
 }
 
+# STOP, stop the audio server
 server_audio_stop () {
   AUDIO_SERVER_IS_RUNNING=0
   kill $AUDIO_SERVER_PID
